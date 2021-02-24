@@ -14,7 +14,6 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->all());
         return User::all();
     }
 
