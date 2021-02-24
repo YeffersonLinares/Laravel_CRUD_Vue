@@ -12,10 +12,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = DB::select("SELECT * FROM users",[1]);
-        return json_encode($users);
+        dd($request->all());
+        return User::all();
     }
 
     /**
@@ -47,7 +47,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $search = DB::select("SELECT id,name,email FROM users WHERE id = $id");
+        return $search;
     }
 
     /**
