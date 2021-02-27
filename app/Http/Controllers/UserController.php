@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -12,7 +13,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         return User::all();
     }
@@ -35,7 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        _token: "{{ csrf_token() }}";
+        $input = $request->all();
+        User::create($input);
+        return response()->json([
+            'res' => true,
+            'message' => 'register complete'
+        ], /* status */ 200);
     }
 
     /**
