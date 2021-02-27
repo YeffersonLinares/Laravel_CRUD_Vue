@@ -35,7 +35,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        
+        $article =  USER::create($request->all());
+
+        return response()->json($article, 201);
+        
+
+        
+
+    }
+    public function storeP(Request $request)
+    {
+           
+        $article =  USER::create($request->all());
+
+        return response()->json($article, 201);
+        
+
+        
+
     }
 
     /**

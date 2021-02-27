@@ -6,12 +6,18 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
 class VerifyCsrfToken extends Middleware
 {
+  
+
     /**
      * The URIs that should be excluded from CSRF verification.
      *
      * @var array
      */
+   
     protected $except = [
-        //
+        
+        'stripe/*',
+        'http://laravel_crud_vue.test/userP',
+        'http://laravel_crud_vue.test/*',
     ];
 }
