@@ -36,13 +36,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        _token: "{{ csrf_token() }}";
-        $input = $request->all();
-        User::create($input);
-        return response()->json([
-            'res' => true,
-            'message' => 'register complete'
-        ], /* status */ 200);
+        $article =  USER::create($request->all());
+        return response()->json($article, 201);
+    }
+
+    public function storeP(Request $request)
+    {
+        $article =  USER::create($request->all());
+        return response()->json($article, 201);
     }
 
     /**

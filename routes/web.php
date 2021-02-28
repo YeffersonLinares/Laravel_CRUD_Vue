@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','UserController@index');
 
-Route::post('user', 'UserController@store');
+Route::resource('user', 'UserController');
+Route::post('userP','UserController@storeP')->name('userP');
